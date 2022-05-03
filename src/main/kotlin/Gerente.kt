@@ -1,8 +1,6 @@
 // Clase Gerente
-class Gerente: Empleado() {
-    override val valorHora: Int = 200
-    override val horasMes: Int = 200
-    override val tieneBono: Boolean = true
+class Gerente(valorHora: Int = 200, horasTrabajadas: Int = 200) : Empleado(valorHora, horasTrabajadas) {
 
+    override val tieneBono: Boolean = true
     override var salario: Int = calcularSalario()
 }

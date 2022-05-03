@@ -1,10 +1,9 @@
 // Clase abstracta empleado
-abstract class Empleado(){
-    abstract val valorHora: Int
-    abstract val horasMes: Int
+abstract class Empleado(val valorHora: Int, val horasMes: Int){
+
     abstract var salario: Int
     abstract val tieneBono: Boolean
-    val valorBono: Int = 0
+    var valorBono: Int = 0
 
     fun calcularBono() = 10 * valorHora
 
