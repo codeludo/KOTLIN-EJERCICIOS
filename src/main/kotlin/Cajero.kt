@@ -1,4 +1,4 @@
-class Sistema {
+class Cajero {
 
     /**
      * funcion para pagar el salario al empleado por código
