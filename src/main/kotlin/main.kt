@@ -1,4 +1,19 @@
 import java.util.Scanner
+
+// Clase Cliente
+// la clase cliente lee la información de entrada
+class Cliente {
+
+    private val reader = Scanner(System.`in`)
+    fun leer(): String{
+        val respuestaCliente: String = reader.next()
+        return respuestaCliente
+    }
+    fun cerrarLectura(){
+        reader.close()
+    }
+
+}
 // Clase abstracta empleado
 abstract class Empleado(){
     abstract val valorHora: Int
@@ -66,24 +81,23 @@ fun pagarSalario(codEmpleado: Int){
         3 -> {
             val contador = Contador()
             salario = contador.salario
-        }
+        } else -> println("Eleccion no soportada")
     }
     println("Cod. empleado: $codEmpleado, Salario: $salario")
 }
 
 fun main(){
 
+    val cliente = Cliente()
+
     while(true){
         println("Ingrese el codigo del empleado:\n1 -> Gerente\n2 -> Operario\n3 -> Contador")
-        val reader = Scanner(System.`in`)
-        val codigoEmpleado = reader.nextInt()
-
-        pagarSalario(codigoEmpleado)
+        pagarSalario(cliente.leer().toInt())
         println("Calcular otro empleado? (y/n)")
-        if(reader.next().equals("n")){
-            reader.close()
+        if(cliente.leer() == "n"){
+            cliente.cerrarLectura()
             break
-        }
+        } else println("continuar")
     }
 
 }
